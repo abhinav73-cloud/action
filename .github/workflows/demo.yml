@@ -14,7 +14,7 @@ on:
 
 jobs:
   test:
-    runs-on: bsoft
+    runs-on: self-hosted
 
     steps:
         - name: test the pwd command
