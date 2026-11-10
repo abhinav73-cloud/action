@@ -10,7 +10,7 @@
     <!-- Project Information -->
     <groupId>com.example</groupId>
     <artifactId>action</artifactId>
-    <version>1.0.3</version>
+    <version>1.4</version>
     <packaging>jar</packaging>
 
     <name>Java Maven CI-CD Application</name>
