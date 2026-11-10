@@ -16,7 +16,7 @@
     <name>Java Maven CI-CD Application</name>
     <description>Java application using Maven and GitHub Actions</description>
 
-    <!-- Java Version -->
+    <!-- Java Configuration -->
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -34,7 +34,7 @@
         </dependency>
     </dependencies>
 
-    <!-- GitHub Packages Configuration -->
+    <!-- GitHub Packages Deployment -->
     <distributionManagement>
         <repository>
             <id>github</id>
@@ -43,25 +43,25 @@
         </repository>
     </distributionManagement>
 
-    <!-- Build Plugins -->
+    <!-- Build Configuration -->
     <build>
         <plugins>
 
-            <!-- Maven Compiler -->
+            <!-- Maven Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
             </plugin>
 
-            <!-- JUnit Test Execution -->
+            <!-- Maven Surefire Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
             </plugin>
 
-            <!-- Create Executable JAR -->
+            <!-- Maven JAR Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -75,8 +75,14 @@
                 </configuration>
             </plugin>
 
+            <!-- Maven Deploy Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.1.2</version>
+            </plugin>
+
         </plugins>
     </build>
 
 </project>
-
