@@ -6,20 +6,31 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Java Maven CI-CD Pipeline
 
 on:
-  workflow_dispatch: 
-    
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
-  test:
+  build-deploy:
     runs-on: self-hosted
 
+    permissions:
+      contents: read
+      packages: write
+
     steps:
-        - name: test the pwd command
-          run: pwd
-        
-        - name: command to execute date
-          run: date   
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Build Java Application
+        run: mvn clean package
+
+      - name: Deploy to GitHub Packages
+        run: mvn deploy -DskipTests
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
